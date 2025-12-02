@@ -1,4 +1,4 @@
-package opgave02.model;
+package opgave04.model;
 
 import java.util.ArrayList;
 
@@ -14,26 +14,19 @@ public class TraningPlan {
         this.weeklyStrenghtHours = weeklyStrenghtHours;
     }
 
-    public void printSwimmers (){
-        for (Swimmer swimmer : swimmers) {
-            System.out.println(swimmer.getName() + "'s bedste tid: " + swimmer.bestLaptime());
-        }
-    }
-
-    public ArrayList<Swimmer> getSwimmers() {
+    public ArrayList<Swimmer> getSwimmers(){
         return new ArrayList<Swimmer>(swimmers);
     }
 
-    public void addSwimmer (Swimmer swimmer){
-        if (!swimmers.contains(swimmer)){
-            swimmers.add(swimmer);
-        }
+    public Swimmer createSwimmer (String swimmerName){
+        Swimmer swimmer = new Swimmer(swimmerName,1994,"FF",this);
+        swimmers.add(swimmer);
+        return swimmer;
     }
 
-    public void removeSwimmer (Swimmer swimmer){
+    public void removeSwimmer(Swimmer swimmer){
         if (swimmers.contains(swimmer)){
             swimmers.remove(swimmer);
-            swimmer.setClub(null);
         }
     }
 
